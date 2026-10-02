@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UwU Prośba ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Mali:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="particles"></div>
+
+    <main class="card-container video-page">
+        <!-- Pływające urocze dymki -->
+        <div class="floating-sticker left">👉👈</div>
+        <div class="floating-sticker right">🥺✨</div>
+
+        <h1 class="request-title rainbow-text">
+            🌸 ładnie prosze o dostep do dysku 🌸
+        </h1>
+
+        <!-- Odtwarzacz wideo przystosowany do pionowego filmu z telefonu -->
+        <div class="video-wrapper">
+            <video controls autoplay loop playsinline poster="">
+                <!-- Pamiętaj, aby plik z filmem nazywał się "moj_film.mp4" -->
+                <source src="moj_film.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+            </video>
+        </div>
+
+        <a href="index.html" class="back-btn">⬅ Powrót</a>
+    </main>
+
+    <script>
+        // Efekt płatków
+        const particlesContainer = document.getElementById('particles');
+        const symbols = ['🌸', '💖', '✨', '🎀', '⭐'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            particle.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            
+            particlesContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        setInterval(createParticle, 300);
+    </script>
+</body>
+</html>
